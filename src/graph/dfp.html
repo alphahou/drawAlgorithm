@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>deepFirstPaths</title>
+</head>
+<body>
+	<script>
+		class Graph{
+			constructor(v,arr){
+				this.v=v
+				this.a=[]
+				this.e=0
+				for(var x=0;x<v;x++){
+					this.a[x]=[]
+				}
+				var l=arr.length
+				for(var i=0;i<l;i+=2){
+					this.a[arr[i]].push(arr[i+1])
+					this.a[arr[i+1]].push(arr[i])
+					this.e++
+				}
+			}
+			adj(v){
+				return this.a[v]
+			}
+
+		}
+		class DeepFirstPaths{
+			constructor(graph,s){
+				this.marked=[]
+				this.edgeTo=[]
+				this.s=s
+				this.dfp(graph,s)
+			}
+			pathTo(v){
+				var path=[]
+				path.push(v)
+				if(this.marked[v]){
+					for(var i=v;this.edgeTo[i]!=this.s;i=this.edgeTo[i]){
+						path.push(this.edgeTo[i])
+					}
+				}
+				path.push(this.s)
+				return path
+			}
+			dfp(graph,v){
+				this.marked[v]=true
+				for(var x of graph.adj(v)){
+					if(!this.marked[x]){
+						this.edgeTo[x]=v
+						this.dfp(graph,x)
+					}
+					
+				}
+				
+			}
+
+		}
+		var arr=[1,2,2,0,0,1,0,3,3,4]
+		var g=new Graph(5,arr)
+		var d=new DeepFirstPaths(g,4)
+		console.log(d.pathTo(1),d.edgeTo)
+
+	</script>
+</body>
+</html>

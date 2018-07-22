@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		header {
+			margin:0 auto;
+			text-align: center;
+		}
+		.inputs {
+			width: 100%;
+			margin: 0 auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: row;
+		}
+		.input {
+			flex: 1;
+			display: inline-block;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		#presentation {
+			margin: 50px auto;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+		}
+	</style>
+</head>
+<body>
+<header><h1>draw-algorithm</h1></header>
+<article></article>
+<hr>
+<div class="inputs">
+<div class="input">
+<label for="selection">choose your algorithm: </label>
+<select id="selection">
+  <option value="findKth">find-kth</option>
+  <option value="heapSort">heap-sort</option>
+  <option value="mergeBottom">merge-bottom</option>
+  <option value="mergeTop">merge-top</option>
+  <option value="priorityQueue">priority-queue</option>
+  <option value="quick3ways">quick-3ways</option>
+  <option value="quickSort">quick-sort</option>
+  <option value="shellSort">shell's-sort</option>
+  <option value="bst">binary-search-tree</option>
+  <option value="rbt">red-black-tree</option>
+</select>
+
+</div>
+<div class="input">
+	<label for="len">length of your array</label>
+	<input  type="range" id="len" min="1" max="50" step="1">
+	<span id="value"></span>
+</div>
+</div>
+<div id="presentation"></div>
+</body>
+</html>
